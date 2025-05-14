@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const { log } = require('console');
@@ -58,7 +58,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next){
     if(this.isModified("password")){
-        this.password = await bcrypt.hash(this.password, 10);
+        this.password = await bcryptjs.hash(this.password, 10);
     }
    
 
@@ -66,7 +66,7 @@ userSchema.pre("save", async function (next){
 });
 
 userSchema.methods.matchPassword = async function (password){
-    return await bcrypt.compare(password, this.password);
+    return await bcryptjs.compare(password, this.password);
 }
 
 
