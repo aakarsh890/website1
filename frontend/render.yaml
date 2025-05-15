@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: website1
-    env: node
-    buildCommand: npm install --legacy-peer-deps && npm run build
-    startCommand: npm run dev
-    branch: main
-    plan: free
