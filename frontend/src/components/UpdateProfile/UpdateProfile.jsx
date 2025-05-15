@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "./UpdateProfile.css"
 import { Avatar, Button, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAlert } from 'react-alert'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+//import { useAlert } from 'react-alert'
 import { loadUser, updateProfile } from '../../Actions/User'
 
 const UpdateProfile = () => {
@@ -21,7 +23,7 @@ const UpdateProfile = () => {
 
     const dispatch = useDispatch();
 
-    const alert = useAlert();
+    //const alert = useAlert();
     
 
     const handleImageChange = (e)=>{
@@ -47,21 +49,21 @@ const UpdateProfile = () => {
 
     useEffect(()=>{
         if(error){
-            alert.error(error);
+            toast.error(error);
             dispatch({ type: "clearErrors" });
         }
 
         if(updateError){
-            alert.error(updateError);
+            toast.error(updateError);
             dispatch({ type: "clearErrors" });
         }
 
         if(message){
-            alert.success(message);
+            toast.success(message);
             dispatch({ type: "clearMessage" });
         }
 
-    }, [dispatch, error, alert, updateError, message]);
+    }, [dispatch, error, updateError, message]);
     return (
         <div className="updateProfile">
           <form className="updateProfileForm" onSubmit={submitHandler}>
