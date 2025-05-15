@@ -3,7 +3,9 @@ import "./Register.css"
 import { Avatar, Button, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAlert } from 'react-alert'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+//import { useAlert } from 'react-alert'
 import { registerUser } from '../../Actions/User'
 
 const Register = () => {
@@ -15,7 +17,7 @@ const Register = () => {
 
     const dispatch = useDispatch();
 
-    const alert = useAlert();
+    //const alert = useAlert();
     const { loading, error }= useSelector((state)=>state.user);
 
     const handleImageChange = (e)=>{
@@ -38,10 +40,10 @@ const Register = () => {
 
     useEffect(()=>{
         if(error){
-            alert.error(error);
+            toast.error(error);
             dispatch({ type: "clearErrors" });
         }
-    }, [dispatch, error, alert]);
+    }, [dispatch, error]);
   return (
     <div className="register">
 
