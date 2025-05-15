@@ -23,10 +23,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-  "preinstall": "npx npm@latest install --legacy-peer-deps",
-  "start": "vite",
-  "build": "vite build"
-},
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
