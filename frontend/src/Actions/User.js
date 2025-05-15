@@ -269,6 +269,7 @@ export const resetPassword = (token, password)=> async(dispatch)=> {
             headers:{
                 "Content-Type": "application/json",
             },
+            withCredentials: true,
         });
 
         dispatch({
