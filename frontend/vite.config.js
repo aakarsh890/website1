@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
     plugins: [react()],
     server: {
-        port:https://frontend-1asg.onrender.com,
+        port:3000
         proxy: {
             "/api": {
                 target: "https://social-server-x29q.onrender.com",
