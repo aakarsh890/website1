@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "serve": "vite preview"
   },
   "eslintConfig": {
@@ -44,7 +44,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://social-server-x29q.onrender.com",
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "vite": "^6.2.3"
