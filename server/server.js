@@ -2,7 +2,7 @@ require('dotenv').config();
 const app = require('./app');
 const { connectData } = require('./config/database');
 const cloudinary = require("cloudinary");
-const cors = require("cors");
+
 
 
 connectData();
@@ -12,11 +12,7 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_KEY,
     api_secret: process.env.CLOUDINARY_SECRET,
 })
-
-app.use(cors({
-  origin: "https://frontend-1asg.onrender.com",
-  credentials: true,
-}));
+  
 
 app.get("/",(req,res)=>{
   return res.json({
