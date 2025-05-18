@@ -14,8 +14,16 @@ cloudinary.config({
 })
 
 app.use(cors({
-  origin: "https://frontend-1asg.onrender.com"
+  origin: "https://frontend-1asg.onrender.com",
+  credentials: true,
 }));
+
+app.get("/",(req,res)=>{
+  return res.json({
+    success: true,
+    message: "YOUR SERVER IS UP",
+  })
+})
 
 app.listen(process.env.PORT,()=>{
     console.log(`server is running on port ${process.env.PORT}`);
