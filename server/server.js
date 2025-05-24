@@ -2,13 +2,7 @@ require('dotenv').config();
 const app = require('./app');
 const { connectData } = require('./config/database');
 const cloudinary = require("cloudinary");
-const cors = require("cors");
 
-app.use(cors({
-    origin: "https://frontend-1asg.onrender.com", // Add your frontend URLs
-    credentials: true, // Allows cookies
-}));
-app.options("*", cors());
 
 connectData();
 
