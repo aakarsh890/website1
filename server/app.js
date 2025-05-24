@@ -1,11 +1,17 @@
 const express = require('express');
 const app = express();
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 
 if(process.env.NODE_ENV !== "production"){
     require('dotenv').config({path: "server/config/config.env"});
 }
+
+app.use(cors({
+    origin: ["http://localhost:3000", "https://frontend-1asg.onrender.com"],
+    credentials: true,
+}));
 
 
 // using Middlewares
