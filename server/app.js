@@ -9,7 +9,7 @@ if(process.env.NODE_ENV !== "production"){
 }
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://your-frontend-deployment-url.com"],
+  origin: ["http://localhost:3000", "https://frontend-1asg.onrender.com"],
   credentials: true, 
 }));
 
