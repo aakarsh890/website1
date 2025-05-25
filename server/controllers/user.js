@@ -36,6 +36,8 @@ exports.register = async (req, res) => {
         const options = {
             expires: new Date(Date.now() + 90*24*60*60*1000),
             httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'Strict',
         };
 
         res.status(201).cookie("token", token, options)
@@ -82,6 +84,8 @@ exports.login = async (req, res) => {
         const options = {
             expires: new Date(Date.now() + 90*24*60*60*1000),
             httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'Strict',
         };
 
         res.status(200).cookie("token", token, options)
@@ -103,7 +107,8 @@ exports.login = async (req, res) => {
 exports.logout = async (req, res)=> {
     try {
         res.status(200)
-        .cookie("token", null, { expires: new Date(Date.now()), httpOnly: true })
+        .cookie("token", null, { expires: new Date(Date.now()), httpOnly: true ,secure: process.env.NODE_ENV === 'production', 
+    sameSite: 'Strict',})
         .json({
             success: true,
             message: "logged out",
@@ -263,7 +268,9 @@ exports.deleteMyProfile = async (req, res) => {
         //logout user after deleting profile
         res.cookie("token", null, { 
             expires: new Date(Date.now()), 
-            httpOnly: true 
+            httpOnly: true ,
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'Strict',
         });
 
         //delete all posts of the user
