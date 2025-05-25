@@ -9,7 +9,11 @@ export const likePost = (id)=>async (dispatch) => {
             type: "likeRequest",
         });
 
-        const {data} = await axios.get(`${API_URL}/api/v1/post/${id}`);
+        const {data} = await axios.get(`${API_URL}/api/v1/post/${id}`
+            , {
+                withCredentials: true,
+              }
+        );
 
         dispatch({
             type: "likeSuccess",
@@ -61,6 +65,8 @@ export const deleteCommentOnPost = (id, commentId)=>async (dispatch) => {
 
         const {data} = await axios.delete(`${API_URL}/api/v1/post/comment/${id}`,{
             data: {commentId},
+            withCredentials: true,
+              
         });
 
         dispatch({
@@ -140,7 +146,11 @@ export const deletePost = (id)=> async (dispatch) => {
             type: "deletePostRequest",
         });
 
-        const { data } = await axios.delete(`${API_URL}/api/v1/post/${id}`);
+        const { data } = await axios.delete(`${API_URL}/api/v1/post/${id}`,
+            {
+                withCredentials: true,
+            }
+        );
 
         dispatch({
             type: "deletePostSuccess",

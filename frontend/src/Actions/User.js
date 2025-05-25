@@ -34,7 +34,11 @@ export const loadUser = ()=> async(dispatch)=> {
             type: "LoadUserRequest",
         });
 
-        const { data } = await axios.get(`${API_URL}/api/v1/me`);
+        const { data } = await axios.get(`${API_URL}/api/v1/me`,
+            {
+                withCredentials: true,
+            }
+        );
 
         dispatch({
             type: "LoadUserSuccess",
@@ -57,7 +61,11 @@ export const getFollowingPosts = ()=>async (dispatch) => {
             type: "postOfFollowingRequest",
         });
 
-        const {data} = await axios.get(`${API_URL}/api/v1/posts`);
+        const {data} = await axios.get(`${API_URL}/api/v1/posts`,
+            {
+                withCredentials: true,
+            }
+        );
         console.log("API Response:", data);
 
         dispatch({
@@ -79,7 +87,11 @@ export const getMyPosts = ()=>async (dispatch) => {
             type: "myPostsRequest",
         });
 
-        const {data} = await axios.get(`${API_URL}/api/v1/my/posts`);
+        const {data} = await axios.get(`${API_URL}/api/v1/my/posts`,
+            {
+                withCredentials: true,
+            }
+        );
 
         dispatch({
             type: "myPostsSuccess",
@@ -121,7 +133,11 @@ export const logoutUser = ()=> async(dispatch)=> {
             type: "LogoutUserRequest",
         });
 
-        await axios.get(`${API_URL}/api/v1/logout`)
+        await axios.get(`${API_URL}/api/v1/logout`,
+            {
+                withCredentials: true,
+            }
+        )
 
         dispatch({
             type: "LogoutUserSuccess",
@@ -220,7 +236,11 @@ export const deleteMyProfile = ()=> async(dispatch)=> {
             type: "deleteProfileRequest",
         });
 
-        const { data } = await axios.delete(`${API_URL}/api/v1/delete/me`)
+        const { data } = await axios.delete(`${API_URL}/api/v1/delete/me`,
+            {
+                withCredentials: true,
+            }
+        )
 
         dispatch({
             type: "deleteProfileSuccess",
@@ -296,7 +316,11 @@ export const getUserPosts = (id)=>async (dispatch) => {
             type: "userPostsRequest",
         });
 
-        const { data } = await axios.get(`${API_URL}/api/v1/userposts/${id}`);
+        const { data } = await axios.get(`${API_URL}/api/v1/userposts/${id}`,
+            {
+                withCredentials: true,
+            }
+        );
 
         dispatch({
             type: "userPostsSuccess",
@@ -318,7 +342,11 @@ export const getUserProfile = (id)=>async (dispatch) => {
             type: "userProfileRequest",
         });
 
-        const {data} = await axios.get(`${API_URL}/api/v1/user/${id}`);
+        const {data} = await axios.get(`${API_URL}/api/v1/user/${id}`,
+            {
+                withCredentials: true,
+            }
+        );
 
         dispatch({
             type: "userProfileSuccess",
@@ -339,7 +367,11 @@ export const followAndUnfollowUser = (id)=>async (dispatch) => {
             type: "followUserRequest",
         });
 
-        const {data} = await axios.get(`${API_URL}/api/v1/follow/${id}`);
+        const {data} = await axios.get(`${API_URL}/api/v1/follow/${id}`,
+            {
+                withCredentials: true,
+            }
+        );
 
         dispatch({
             type: "followUserSuccess",
